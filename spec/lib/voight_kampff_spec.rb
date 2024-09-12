@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe VoightKampff do
-  subject { VoightKampff }
+  subject { described_class }
 
-  HUMANS.each do |name, ua_string|
+  HUMANS.each_value do |ua_string|
     context "when user agent is #{ua_string}" do
       let(:user_agent_string) { ua_string }
 
@@ -14,7 +16,7 @@ RSpec.describe VoightKampff do
     end
   end
 
-  REPLICANTS.each do |name, ua_string|
+  REPLICANTS.each_value do |ua_string|
     context "when user agent is #{ua_string}" do
       let(:user_agent_string) { ua_string }
 

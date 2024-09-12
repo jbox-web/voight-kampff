@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe Rack::Request do
-  let(:user_agent_string) { }
-  let(:env) { {'HTTP_USER_AGENT' => user_agent_string} }
-  subject { Rack::Request.new(env) }
+  subject { described_class.new(env) }
+
+  let(:user_agent_string) {} # rubocop:disable Lint/EmptyBlock
+  let(:env) { { 'HTTP_USER_AGENT' => user_agent_string } }
 
   it { expect(subject).to respond_to :human? }
   it { expect(subject).to respond_to :bot? }
@@ -14,8 +17,8 @@ RSpec.describe Rack::Request do
       let(:user_agent_string) { ua_string }
 
       it 'is not a replicant' do
-        expect(subject.human?).to eql true
-        expect(subject.bot?).to eql false
+        expect(subject.human?).to be true
+        expect(subject.bot?).to be false
       end
     end
   end
@@ -25,8 +28,8 @@ RSpec.describe Rack::Request do
       let(:user_agent_string) { ua_string }
 
       it 'is a replicant' do
-        expect(subject.bot?).to eql true
-        expect(subject.human?).to eql false
+        expect(subject.bot?).to be true
+        expect(subject.human?).to be false
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 
 require 'voight_kampff/test'
@@ -17,7 +19,7 @@ module VoightKampff
     def bot?(user_agent_string)
       test(user_agent_string).bot?
     end
-    alias :replicant? :bot?
+    alias replicant? bot?
 
     private
 

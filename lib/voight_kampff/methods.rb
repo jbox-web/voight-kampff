@@ -1,10 +1,14 @@
-module VoightKampff::Methods
-  def human?
-    VoightKampff::Test.new(user_agent).human?
-  end
+# frozen_string_literal: true
 
-  def bot?
-    VoightKampff::Test.new(user_agent).bot?
+module VoightKampff
+  module Methods
+    def human?
+      VoightKampff::Test.new(user_agent).human?
+    end
+
+    def bot?
+      VoightKampff::Test.new(user_agent).bot?
+    end
+    alias replicant? bot?
   end
-  alias :replicant? :bot?
 end

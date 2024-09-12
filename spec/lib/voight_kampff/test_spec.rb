@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe VoightKampff::Test do
+  subject { described_class.new(user_agent_string) }
+
   let(:user_agent_string) { nil }
-  subject { VoightKampff::Test.new(user_agent_string) }
 
   HUMANS.each do |name, ua_string|
     context "when user agent is #{name}" do
@@ -26,13 +29,13 @@ RSpec.describe VoightKampff::Test do
     end
   end
 
-  context 'after the first run' do
-    before { VoightKampff::Test.new('anything').bot? }
+  describe 'after the first run' do
+    before { described_class.new('anything').bot? }
 
     it 'is fast' do
       expect(
         Benchmark.realtime do
-          20.times { VoightKampff::Test.new('anything').bot? }
+          20.times { described_class.new('anything').bot? }
         end
       ).to be < 0.005
     end

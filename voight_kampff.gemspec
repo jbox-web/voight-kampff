@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   s.name        = 'voight_kampff'
   s.version     = VoightKampff::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Adam Crownoble"]
-  s.email       = ["adam@codenoble.com"]
-  s.homepage    = "https://github.com/jbox-web/voight-kampff"
-  s.summary     = "Voight-Kampff bot detection"
+  s.authors     = ['Adam Crownoble']
+  s.email       = ['adam@codenoble.com']
+  s.homepage    = 'https://github.com/jbox-web/voight-kampff'
+  s.summary     = 'Voight-Kampff bot detection'
   s.description = 'Voight-Kampff detects bots, spiders, crawlers and replicants'
   s.license     = 'MIT'
 

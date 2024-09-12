@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module VoightKampff
   class Test
     CRAWLERS_FILENAME = 'crawler-user-agents.json'
@@ -19,7 +21,7 @@ module VoightKampff
     def bot?
       !human?
     end
-    alias :replicant? :bot?
+    alias replicant? bot?
 
     private
 
@@ -37,24 +39,27 @@ module VoightKampff
     end
 
     def matching_crawler
-      if match = crawler_regexp.match(@user_agent_string)
-        index = match.names.first.sub(/match/, '').to_i
-        crawlers[index]
-      end
+      return unless (match = crawler_regexp.match(@user_agent_string))
+
+      index = match.names.first.sub(/match/, '').to_i # rubocop:disable Style/RedundantRegexpArgument
+      crawlers[index]
     end
 
     def crawler_regexp
-      @@crawler_regexp ||= begin
+      @@crawler_regexp ||= begin # rubocop:disable Style/ClassVars
         # NOTE: This is admittedly a bit convoluted but the performance gains make it worthwhile
         index = -1
-        crawler_patterns = crawlers.map{|c| index += 1; "(?<match#{index}>#{c["pattern"]})" }.join("|")
+        crawler_patterns = crawlers.map do |c|
+          index += 1
+          "(?<match#{index}>#{c['pattern']})"
+        end.join('|')
         crawler_patterns = "(#{crawler_patterns})"
         Regexp.new(crawler_patterns, Regexp::IGNORECASE)
       end
     end
 
     def crawlers
-      @@crawlers ||= JSON.load(File.open(preferred_path, 'r'))
+      @@crawlers ||= JSON.parse(File.read(preferred_path)) # rubocop:disable Style/ClassVars
     end
   end
 end

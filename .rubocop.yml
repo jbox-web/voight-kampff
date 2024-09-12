@@ -1,0 +1,45 @@
+---
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-rspec_rails
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
+  Exclude:
+    - bin/*
+    - spec/internal/**/*
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+#########
+# STYLE #
+#########
+
+Style/Documentation:
+  Enabled: false
+
+##########
+# LAYOUT #
+##########
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+#########
+# RSPEC #
+#########
+
+RSpec/MultipleExpectations:
+  Max: 2
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpecRails/HttpStatus:
+  EnforcedStyle: numeric

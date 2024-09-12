@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReplicantsController < ActionController::Base
   def index
     header = "Replicants:\n===========\n"
