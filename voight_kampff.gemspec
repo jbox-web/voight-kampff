@@ -18,8 +18,4 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
 
   s.add_dependency 'rack', ['>= 1.4']
-
-  s.add_development_dependency 'combustion', '~> 1.1'
-  s.add_development_dependency 'rails', '>= 5.2'
-  s.add_development_dependency 'rspec-rails', '~> 3.8'
 end
