@@ -1,7 +1,18 @@
-.DS_Store
-*~
+# Ignore bundler config.
+.bundle/
+
+# Ignore Gemfile.lock
 Gemfile.lock
-.bundle
-*.rbc
-coverage
-doc
+gemfiles/*.lock
+
+# Ignore test files
+coverage/
+
+# Ignore dummy app files
+spec/dummy/db/*.sqlite3
+spec/dummy/db/*.sqlite3-*
+spec/dummy/log/*.log
+spec/dummy/tmp/
+
+# Ignore MacOS files
+.DS_Store
