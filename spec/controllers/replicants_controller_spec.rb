@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ReplicantsController, type: :controller do
+RSpec.describe ReplicantsController, type: :controller do
   let(:user_agent_string) { '' }
   before do
     expect_any_instance_of(ActionController::TestRequest).to receive(:user_agent).and_return user_agent_string

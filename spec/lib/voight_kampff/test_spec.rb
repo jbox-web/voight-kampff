@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe VoightKampff::Test do
+RSpec.describe VoightKampff::Test do
   let(:user_agent_string) { nil }
   subject { VoightKampff::Test.new(user_agent_string) }
 

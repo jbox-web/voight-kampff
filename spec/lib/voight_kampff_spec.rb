@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe VoightKampff do
+RSpec.describe VoightKampff do
   subject { VoightKampff }
 
   HUMANS.each do |name, ua_string|

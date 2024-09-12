@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Rack::Request do
+RSpec.describe Rack::Request do
   let(:user_agent_string) { }
   let(:env) { {'HTTP_USER_AGENT' => user_agent_string} }
   subject { Rack::Request.new(env) }
