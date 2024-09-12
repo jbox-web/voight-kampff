@@ -5,6 +5,7 @@ require 'combustion'
 require 'voight_kampff'
 require 'voight_kampff/rails'
 
+Combustion.path = 'spec/dummy'
 Combustion.initialize! :action_controller
 
 require 'rspec/rails'
