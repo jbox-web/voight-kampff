@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Adam Crownoble"]
   s.email       = ["adam@codenoble.com"]
-  s.homepage    = "https://github.com/biola/Voight-Kampff"
+  s.homepage    = "https://github.com/jbox-web/voight-kampff"
   s.summary     = "Voight-Kampff bot detection"
   s.description = 'Voight-Kampff detects bots, spiders, crawlers and replicants'
   s.license     = 'MIT'
