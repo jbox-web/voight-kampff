@@ -4,7 +4,7 @@ require_relative 'lib/voight_kampff/version'
 
 Gem::Specification.new do |s|
   s.name        = 'voight_kampff'
-  s.version     = VoightKampff::VERSION
+  s.version     = VoightKampff::VERSION::STRING
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Adam Crownoble']
   s.email       = ['adam@codenoble.com']
