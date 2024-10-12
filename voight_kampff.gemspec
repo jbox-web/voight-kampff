@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 3.0.0'
 
-  s.files = `git ls-files`.split("\n")
+  s.files = Dir['README.md', 'LICENSE', 'lib/**/*.rb', 'config/*.json']
 
   s.add_dependency 'rack', ['>= 1.4']
 end
