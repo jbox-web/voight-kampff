@@ -4,14 +4,17 @@ source 'https://rubygems.org'
 
 gemspec
 
+# Dev libs
 gem 'combustion', '~> 1.1'
 gem 'rails', '>= 5.2'
 gem 'rake'
 gem 'rspec-rails', '~> 3.8'
-gem 'rubocop'
-gem 'rubocop-performance'
-gem 'rubocop-rails'
-gem 'rubocop-rake'
-gem 'rubocop-rspec'
-gem 'rubocop-rspec_rails'
 gem 'simplecov'
+
+# Dev tools / linter
+gem 'rubocop',             require: false
+gem 'rubocop-performance', require: false
+gem 'rubocop-rails',       require: false
+gem 'rubocop-rake',        require: false
+gem 'rubocop-rspec',       require: false
+gem 'rubocop-rspec_rails', require: false
