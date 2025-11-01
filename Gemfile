@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 # Dev libs
+gem 'benchmark'
 gem 'combustion', '~> 1.1'
 gem 'rails', '>= 5.2'
 gem 'rake'
