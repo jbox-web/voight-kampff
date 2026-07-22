@@ -12,7 +12,9 @@ coverage/
 spec/dummy/db/*.sqlite3
 spec/dummy/db/*.sqlite3-*
 spec/dummy/log/*.log
+spec/dummy/public/favicon.ico
 spec/dummy/tmp/
+spec/internal/log/*.log
 
 # Ignore MacOS files
 .DS_Store

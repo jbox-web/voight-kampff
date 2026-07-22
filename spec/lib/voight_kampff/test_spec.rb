@@ -29,6 +29,39 @@ RSpec.describe VoightKampff::Test do
     end
   end
 
+  describe '#agent' do
+    it 'returns the crawler entry that actually matched, not always the first one' do
+      test = described_class.new('Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)')
+      expect(test.agent['pattern']).to match(/bingbot/i)
+    end
+
+    it 'returns an empty hash for a human user agent' do
+      test = described_class.new(HUMANS['Chrome'])
+      expect(test.agent).to eq({})
+    end
+  end
+
+  describe 'crawler list loading' do
+    it 'raises a clear error when the crawler list cannot be found' do
+      test = described_class.new('x')
+      allow(test).to receive(:preferred_path).and_return(nil)
+      expect { test.send(:load_crawlers) }.to raise_error(VoightKampff::Error, /not found/)
+    end
+
+    it 'raises a clear error when the crawler list is not valid JSON' do
+      test = described_class.new('x')
+      allow(test).to receive(:preferred_path).and_return('bad.json')
+      without_partial_double_verification { allow(File).to receive(:read).and_return('{ not json') }
+      expect { test.send(:load_crawlers) }.to raise_error(VoightKampff::Error, /valid JSON/)
+    end
+
+    it 'raises a clear error when a crawler pattern is not a valid regexp' do
+      test = described_class.new('x')
+      expect { test.send(:build_crawler_regexp, [{ 'pattern' => '(' }]) }
+        .to raise_error(VoightKampff::Error, /invalid regexp/)
+    end
+  end
+
   describe 'after the first run' do
     before { described_class.new('anything').bot? }
 

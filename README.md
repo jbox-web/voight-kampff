@@ -49,7 +49,7 @@ All of the above examples accept `human?` and `bot?` methods. All of these metho
 
 ## Upgrading to version 1.0
 
-Version 1.0 uses a new source for a list of bot user agent strings since the old source was no longer maintained. This new source, unfortuately, does not include as much detail. Therefore the following methods have been deprecated:
+Version 1.0 uses a new source for a list of bot user agent strings since the old source was no longer maintained. This new source, unfortuately, does not include as much detail. Therefore the following methods have been removed (calling them now raises `NoMethodError`):
 
 - `#browser?`
 - `#checker?`

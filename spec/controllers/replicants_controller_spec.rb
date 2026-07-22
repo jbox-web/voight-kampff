@@ -16,7 +16,7 @@ RSpec.describe ReplicantsController do
 
       it 'is forbidden' do
         expect(response).to have_http_status 403
-        expect(response.body).to match(/No replicants here/)
+        expect(response.body).to include('No replicants here')
       end
     end
   end
@@ -27,7 +27,7 @@ RSpec.describe ReplicantsController do
 
       it 'is successful' do
         expect(response).to have_http_status 200
-        expect(response.body).to match(/Rick Deckard/)
+        expect(response.body).to include('Rick Deckard')
       end
     end
   end
