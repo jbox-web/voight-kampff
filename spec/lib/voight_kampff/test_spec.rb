@@ -62,6 +62,16 @@ RSpec.describe VoightKampff::Test do
     end
   end
 
+  describe 'crawler list lookup paths' do
+    it 'falls back to the gem config when Rails is not defined (Rack-only usage)' do
+      test = described_class.new('x')
+      allow(test).to receive(:rails_defined?).and_return(false)
+
+      gem_path = VoightKampff.root.join('config', described_class::CRAWLERS_FILENAME)
+      expect(test.send(:lookup_paths)).to eq([gem_path])
+    end
+  end
+
   describe 'after the first run' do
     before { described_class.new('anything').bot? }
 

@@ -37,10 +37,16 @@ module VoightKampff
     def lookup_paths
       # These paths should be orderd by priority
       base_paths = []
-      base_paths << Rails.root if defined? Rails
+      base_paths << Rails.root if rails_defined?
       base_paths << VoightKampff.root
 
       base_paths.map { |p| p.join('config', CRAWLERS_FILENAME) }
+    end
+
+    # Extracted so the Rails-absent branch (Rack-only usage) is reachable in
+    # tests: the `defined?` keyword can't be stubbed, but this method can.
+    def rails_defined?
+      !defined?(Rails).nil?
     end
 
     def preferred_path
